@@ -1,0 +1,11 @@
+{% extends '@SonataAdmin/standard_layout.html.twig' %}
+
+{% block side_bar_after_nav %}
+    <ul class="sidebar-menu" data-widget="tree">
+        <li class="active first">
+            <a href="{{ path('generatePhpConfig', {'name': ''}) }}">
+                保存配置
+            </a>
+        </li>
+    </ul>
+{% endblock %}

@@ -36,7 +36,7 @@ register_shutdown_function(function() use ($coverage, $configs) {
     register_shutdown_function(function() use ($coverage, $configs) {
         $coverage->stop();
 
-        $oldDataFile = $configs['dataDir'] . $configs['id'] . '.xzpcc';
+        $oldDataFile = $configs['dataDir'] . '/' . $configs['host'] . '.xzpcc';
         if (is_file($oldDataFile)) {
             $content = file_get_contents($oldDataFile);
             if (!empty($content)) {
@@ -61,9 +61,9 @@ register_shutdown_function(function() use ($coverage, $configs) {
         //     fclose($oldDataFile);
         // }
 
-        if (isset($_GET['_GENERATE_REPORT']) && $_GET['_GENERATE_REPORT'] == $configs['id']) {
+        if (isset($_GET['_GENERATE_REPORT']) && $_GET['_GENERATE_REPORT'] == $configs['host']) {
             $writer = new \SebastianBergmann\CodeCoverage\Report\Html\Facade;
-            $writer->process($coverage, $configs['dataDir'] . 'code-coverage-report/' . $configs['id']);
+            $writer->process($coverage, $configs['reportDir'] . '/' . $configs['id']);
         }
     });
 });

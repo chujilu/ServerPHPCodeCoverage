@@ -1,9 +1,24 @@
 sonata_admin:
     title: '代码覆盖率分析'
-    title_logo: bundles/sonataadmin/logo_title.png
+    title_logo: static/logo.jpg
     dashboard:
         blocks:
             - { type: sonata.admin.block.admin_list, position: left }
+        groups:
+            settings:
+                label: 任务配置
+                label_catalogue: ~
+                on_top: true
+                items:
+                    - admin.task
+            reports:
+                label: 分析报告
+                label_catalogue: ~
+                on_top: true
+                items:
+                    - admin.task_history
+    templates:
+        layout: standard_layout.html.twig
 
 sonata_block:
     blocks:

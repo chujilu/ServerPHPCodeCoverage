@@ -31,3 +31,17 @@ services:
         arguments: [~, App\Entity\Project, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: '项目' }
+
+    admin.task:
+        class: App\Admin\TaskAdmin
+        arguments: [~, App\Entity\Task, App\Controller\TaskAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: 任务 }
+        public: true
+
+    admin.task_history:
+        class: App\Admin\TaskHistoryAdmin
+        arguments: [~, App\Entity\TaskHistory, App\Controller\TaskHistoryAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: 报告 }
+        public: true
