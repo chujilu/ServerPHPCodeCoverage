@@ -1,4 +1,5 @@
 <?php
+return;
 /**
  * 使用最精简代码
  * 兼容php5 php7
