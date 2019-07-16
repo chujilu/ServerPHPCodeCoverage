@@ -1,5 +1,4 @@
 <?php
-return;
 /**
  * 使用最精简代码
  * 兼容php5 php7
@@ -17,7 +16,7 @@ if(is_cli()) {
 
 //统计代码禁用
 if (isset($_SERVER['SCRIPT_FILENAME']) && strpos($_SERVER['SCRIPT_FILENAME'], dirname(__DIR__)) === 0) {
-    return;
+    //return;
 }
 
 //全局开关
@@ -26,18 +25,34 @@ if (!$configs['open']) {
     return;
 }
 
+//查找任务
+if(empty($configs['tasks'])) {
+    return;
+}
+$scriptFileName = isset($_SERVER['SCRIPT_FILENAME']) ? $_SERVER['SCRIPT_FILENAME'] : 'default';
+$currentTask = null;
+foreach ($configs['tasks'] as $task) {
+    if(strpos($scriptFileName, $task['dir']) === 0 && (empty($task['host']) || $task['host'] === '*' || $task['host'] == $configs['host']) && $task['status'] === 'run') {
+        $currentTask = $task;
+    }
+}
+if ($currentTask === null) {
+    return;
+}
+$configs['currentTask'] = $currentTask;
+
 include_once dirname(__DIR__) . '/vendor/autoload.php';
 use SebastianBergmann\CodeCoverage\CodeCoverage;
 
 $coverage = new CodeCoverage;
 $coverage->filter()->addDirectoryToWhitelist('/Users/chujilu/PhpstormProjects/user-service/src');
-$coverage->start($host);
+$coverage->start((string)$configs['currentTask']['id']);
 
 register_shutdown_function(function() use ($coverage, $configs) {
     register_shutdown_function(function() use ($coverage, $configs) {
         $coverage->stop();
 
-        $oldDataFile = $configs['dataDir'] . '/' . $configs['host'] . '.xzpcc';
+        $oldDataFile = $configs['dataDir'] . '/' . $configs['currentTask']['id'] . '.xzpcc';
         if (is_file($oldDataFile)) {
             $content = file_get_contents($oldDataFile);
             if (!empty($content)) {
@@ -50,7 +65,7 @@ register_shutdown_function(function() use ($coverage, $configs) {
             $oldCoverage = $coverage;
         }
 
-        file_put_contents($oldDataFile, serialize($oldCoverage));
+        $r = file_put_contents($oldDataFile, serialize($oldCoverage));
 
         // if (!is_file($oldDataFile)) {
         //     file_put_contents($oldDataFile, serialize($oldCoverage), LOCK_EX);
@@ -62,9 +77,9 @@ register_shutdown_function(function() use ($coverage, $configs) {
         //     fclose($oldDataFile);
         // }
 
-        if (isset($_GET['_GENERATE_REPORT']) && $_GET['_GENERATE_REPORT'] == $configs['host']) {
+        if (isset($_GET['_GENERATE_REPORT']) && $_GET['_GENERATE_REPORT'] == $configs['currentTask']['id']) {
             $writer = new \SebastianBergmann\CodeCoverage\Report\Html\Facade;
-            $writer->process($coverage, $configs['reportDir'] . '/' . $configs['id']);
+            $writer->process($coverage, $configs['reportDir'] . '/' . $configs['currentTask']['id']);
         }
     });
 });

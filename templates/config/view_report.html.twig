@@ -1,0 +1,18 @@
+{% extends 'standard_layout.html.twig' %}
+
+{% block sonata_admin_content %}
+    <style>
+        iframe, .content, .iframe-report {
+            width: 100%;
+            height: 100%;
+        }
+        iframe {
+            display: block; /* iframes are inline by default */
+            background: #000;
+            border: none; /* Reset default border */
+            height: 100vh; /* Viewport-relative units */
+            width: 100vw;
+        }
+    </style>
+    <iframe frameborder=0 scrolling=no class="iframe-report" src="{{ url }}" onload=' this.style.height=Math.max(this.contentWindow.document.body.scrollHeight,this.contentWindow.document.documentElement.scrollHeight,200)+"px";  '> </iframe>
+{% endblock %}

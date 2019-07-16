@@ -49,6 +49,9 @@ final class TaskAdmin extends AbstractAdmin
             ])
             ->add('_action', null, [
                 'actions' => [
+                    'report' => [
+                        'template' => 'actions/list__action_report.html.twig',
+                    ],
                     'show' => [],
                     'edit' => [],
                     'delete' => [],

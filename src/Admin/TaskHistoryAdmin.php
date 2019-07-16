@@ -42,6 +42,9 @@ final class TaskHistoryAdmin extends AbstractAdmin
             ->add('createAt')
             ->add('_action', null, [
                 'actions' => [
+                    'report' => [
+                        'template' => 'actions/list__action_viewreport.html.twig',
+                    ],
                     'show' => [],
                     'edit' => [],
                     'delete' => [],
