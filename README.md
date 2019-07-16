@@ -15,3 +15,14 @@ nginx配置php服务到public目录
 * 保存配置
 
 [项目预览](https://www.it603.com/page/93.html) https://www.it603.com/page/93.html
+
+![任务](https://www.it603.com/file.php?f=201907/f_72e76e246945e6792b0ee759cfff69ca.png&t=png&o=&s=full&v=1426664829)
+
+![任务列表](https://www.it603.com/file.php?f=201907/f_4f0a118dd37c360c3e5dd322535f0640.png&t=png&o=&s=full&v=1426664829)
+
+![报告](https://www.it603.com/file.php?f=201907/f_c13fa336bd3f0b248ce69c809ecc2912.png&t=png&o=&s=full&v=1426664829)
+
+![报告详情](https://www.it603.com/file.php?f=201907/f_6697a713838a188b8eef89cf968b87fa.png&t=png&o=&s=full&v=1426664829)
+
+![报告报表](https://www.it603.com/file.php?f=201907/f_a08a1c854aaf0f3ef72309ea0cade5c9.png&t=png&o=&s=full&v=1426664829)
+
