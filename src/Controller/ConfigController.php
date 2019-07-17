@@ -18,6 +18,10 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ConfigController extends AbstractController
 {
+    public function home()
+    {
+        return $this->redirectToRoute('sonata_admin_dashboard');
+    }
     /**
      * @Route("/generatePhpConfig", name="generatePhpConfig")
      * @param ConfigApplication $configApplication
