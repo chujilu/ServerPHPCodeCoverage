@@ -86,7 +86,19 @@ $autoloadFunctions = spl_autoload_functions();
 foreach($autoloadFunctions as $function) {
     spl_autoload_unregister($function);
 }
-
+unset($autoloadFunctions);
+unset($cacheFilesByPhp);
+unset($cacheFilesByPhpFile);
+unset($currentTask);
+unset($excludeDir);
+unset($excludeDirKey);
+unset($excludeDirValue);
+unset($file);
+unset($files);
+unset($function);
+unset($includeDir);
+unset($scriptFileName);
+unset($task);
 //结束
 register_shutdown_function(function() use ($coverage, $configs) {
     register_shutdown_function(function() use ($coverage, $configs) {
