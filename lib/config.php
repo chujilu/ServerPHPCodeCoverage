@@ -6,9 +6,9 @@ $configs = [
     'dataDir' => dirname(__DIR__) . '/data',
     'reportDir' => dirname(__DIR__) . '/public/reports',
 //    'redis' => [
-//        'host' => '10.0.0.221',
+//        'host' => '10.0.0.*',
 //        'port' => '6379',
-//        'auth' => '9f83d4682ba8b962',
+//        'auth' => '**',
 //    ],
 ];
 //获取域名
