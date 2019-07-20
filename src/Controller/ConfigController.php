@@ -34,10 +34,11 @@ class ConfigController extends AbstractController
         /** @var Task $task */
         foreach ($tasks as $task) {
             $taskConfigs[$task->getId()] = [
-                'id' => $task->getId(),
+                'id' => (string)$task->getId(),
                 'name' => $task->getName(),
                 'host' => $task->getHost(),
                 'dir' => $task->getDir(),
+                'excludeDir' => $task->getExcludeDir(),
                 'status' => $task->getStatus(),
             ];
         }

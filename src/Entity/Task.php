@@ -36,6 +36,11 @@ class Task
      */
     private $status;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $excludeDir;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +90,18 @@ class Task
     public function setStatus(string $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getExcludeDir(): ?string
+    {
+        return $this->excludeDir;
+    }
+
+    public function setExcludeDir(?string $excludeDir): self
+    {
+        $this->excludeDir = $excludeDir;
 
         return $this;
     }

@@ -1,1 +1,3 @@
-.xzpcc
+*.xzpcc
+*.files.php
+*.db

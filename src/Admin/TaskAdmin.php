@@ -65,6 +65,7 @@ final class TaskAdmin extends AbstractAdmin
             ->add('name')
             ->add('host')
             ->add('dir')
+            ->add('excludeDir')
             ->add('status', ChoiceType::class, [
                 'choices' => self::$status,
             ])
@@ -78,6 +79,7 @@ final class TaskAdmin extends AbstractAdmin
             ->add('name')
             ->add('host')
             ->add('dir')
+            ->add('excludeDir')
             ->add('status', 'choice', [
                 'choices' => array_flip(self::$status),
             ])

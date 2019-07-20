@@ -30,7 +30,7 @@ class ConfigApplication
     {
         $libConfigs = $this->getLibConfig();
         $generateConfigFile = $libConfigs['dataDir'] . '/generateConfigs.php';
-        $configContents = "<?php \$configs['tasks'] = " . var_export($taskConfigs, true) . ';';
+        $configContents = "<?php /* 程序自动生成 请勿手动编辑 */ \n \$configs['tasks'] = " . var_export($taskConfigs, true) . ';';
         file_put_contents($generateConfigFile, $configContents);
         return $configContents;
     }

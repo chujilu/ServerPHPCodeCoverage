@@ -2,8 +2,14 @@
 $configs = [
     'debug' => false,
     'open' => true,
+    'cacheTime' => 60*10,
     'dataDir' => dirname(__DIR__) . '/data',
     'reportDir' => dirname(__DIR__) . '/public/reports',
+//    'redis' => [
+//        'host' => '10.0.0.221',
+//        'port' => '6379',
+//        'auth' => '9f83d4682ba8b962',
+//    ],
 ];
 //获取域名
 $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'default';
