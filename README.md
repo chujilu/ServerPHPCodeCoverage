@@ -7,16 +7,19 @@
 
 ## install
 
-php.ini配置
+1、下载源码到服务器
+`git clone git@github.com:chujilu/ServerPHPCodeCoverage.git`
 
-auto_prepend_file = {项目代码路径}/lib/inject.php
+2、安装依赖 `composer install`
 
-nginx配置php服务到public目录
-给data var目录777权限
+3、配置加载文件 php.ini文件内配置
+`auto_prepend_file = {项目代码路径}/lib/inject.php`
+
+4、nginx配置php服务到public目录，给data var目录777权限
 
 ## 配置
 
-* 任务 配置任务代码路径，设置状态为采集中，保存配置，检查生成的php配置是否正确
+* 任务 配置任务代码路径，设置状态为采集中，点击保存配置，检查生成的php配置是否正确
 * 报告 运行一段时间后点击任务操作生成报告，点击报告操作查看报告
 * 保存配置
 
